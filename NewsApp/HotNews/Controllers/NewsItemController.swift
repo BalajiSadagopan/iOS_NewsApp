@@ -31,7 +31,7 @@ class NewsItemController: UITableViewController, UISearchBarDelegate {
         return "Top Headlines"
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as? NewsItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as? ItemCell else {
             fatalError("Article cell not found")
         }
         let newsTitle = titles[indexPath.row]

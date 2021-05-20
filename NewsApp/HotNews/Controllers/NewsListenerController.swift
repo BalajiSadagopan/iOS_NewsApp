@@ -54,7 +54,7 @@ class NewsListenerController: UITableViewController, SFSafariViewControllerDeleg
         return self.articleListViewModel.SectionRows(section)
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableCell", for: indexPath) as? ArticleTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableCell", for: indexPath) as? TableCell else {
             fatalError("Article cell not found")
         }
         let articleAtCell = self.articleListViewModel.ArticleIndex(indexPath.row)

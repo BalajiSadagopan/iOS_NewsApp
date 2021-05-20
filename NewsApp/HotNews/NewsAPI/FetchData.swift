@@ -5,14 +5,17 @@
 //  Created by Balaji Sadagopan
 //  Copyright © 2021 Balaji Sadagopan. All rights reserved.
 //
+// Parsing the API Data
+
 
 import Foundation
 
 class FetchData {
-    //let apikey = "416a679ac2cf492d941fb7b55757d24b"
-    let apiKey = "b18a5f797c9b415a8dffd864df0e8fe6"
+    // Please switch between API once you reached limits
+    let apiKey = "416a679ac2cf492d941fb7b55757d24b"
+    //let apiKey = "b18a5f797c9b415a8dffd864df0e8fe6"
     func getArticles(for urlString: String, with page: Int, completion: @escaping ([Article]?, Int) -> ()) {
-        print("Initiating data task")
+        print("Parsing Data")
         let newsURL = getNewsURL(for: urlString,with: page)
         if let url = URL(string: newsURL) {
             let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
@@ -31,7 +34,7 @@ class FetchData {
                         completion(nil,0)
                     }
                 }
-                print("Data task complete")
+                print("Data Parsing Completed")
             }.resume()
         }
     }

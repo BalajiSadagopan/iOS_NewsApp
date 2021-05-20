@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B006E08243CEB9000DDC614 /* NewsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B006E07243CEB9000DDC614 /* NewsWebViewController.swift */; };
+		0B006E08243CEB9000DDC614 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B006E07243CEB9000DDC614 /* WebViewController.swift */; };
 		0B9E37B6243874F900D1777F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E37B5243874F900D1777F /* AppDelegate.swift */; };
 		0B9E37BD243874F900D1777F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E37BB243874F900D1777F /* Main.storyboard */; };
 		0B9E37BF243874FA00D1777F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E37BE243874FA00D1777F /* Assets.xcassets */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B006E07243CEB9000DDC614 /* NewsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebViewController.swift; sourceTree = "<group>"; };
+		0B006E07243CEB9000DDC614 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0B9BD60A243ECD0100FCB1C4 /* HotNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotNews.entitlements; sourceTree = "<group>"; };
 		0B9E37B2243874F900D1777F /* HotNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9E37B5243874F900D1777F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				0B9E37CA2438754700D1777F /* NewsListenerController.swift */,
 				0BEE4ECE243A401A004EE24A /* NewsItemController.swift */,
-				0B006E07243CEB9000DDC614 /* NewsWebViewController.swift */,
+				0B006E07243CEB9000DDC614 /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 				0BEE4ECF243A401A004EE24A /* NewsItemController.swift in Sources */,
 				0B9E37D62438F10000D1777F /* ArticleViewModel.swift in Sources */,
 				0B9E37CD2438780800D1777F /* SceneDelegate.swift in Sources */,
-				0B006E08243CEB9000DDC614 /* NewsWebViewController.swift in Sources */,
+				0B006E08243CEB9000DDC614 /* WebViewController.swift in Sources */,
 				0B9E37D32438BDE500D1777F /* Article.swift in Sources */,
 				0B9E37D92439A2C700D1777F /* ArticleView.swift in Sources */,
 			);
