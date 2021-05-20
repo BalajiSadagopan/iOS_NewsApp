@@ -13,10 +13,10 @@ class NewsItemController: UITableViewController, UISearchBarDelegate {
     let titles = ["Business", "Technology", "Entertainment", "General", "Health","Science", "Sports"]
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
-        print("The view did load")
+        print("Categories Loaded")
         super.viewDidLoad()
         searchBar.delegate = self
-        searchBar.placeholder = "Search For News e.g.,Tom Hanks"
+        searchBar.placeholder = "Search For News..."
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -28,11 +28,11 @@ class NewsItemController: UITableViewController, UISearchBarDelegate {
         return self.titles.count
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Top Headlines"
+        return "Top Categories"
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as? ItemCell else {
-            fatalError("Article cell not found")
+            fatalError("Article not found")
         }
         let newsTitle = titles[indexPath.row]
         cell.newsItem.text = newsTitle
@@ -46,7 +46,7 @@ class NewsItemController: UITableViewController, UISearchBarDelegate {
                 performSegue(withIdentifier: "NewsItems", sender: "q="+searchText)
             }
         } else {
-            print("Search text is null")
+            print("Empty search!")
         }
     }
 }

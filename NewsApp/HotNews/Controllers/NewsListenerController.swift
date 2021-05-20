@@ -25,24 +25,24 @@ class NewsListenerController: UITableViewController, SFSafariViewControllerDeleg
     }
     private func setupView() {
         var dataFetched = false
-        print("Setting up view")
+        print("Rendering View")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         activityIndicator.startAnimating()
-        print("Fetching Webservice articles")
+        print("Fetching Web Articles")
         FetchData().getArticles(for: newsURL, with: page) { articles, totalResults in
             if let articles = articles {
                 dataFetched = true
                 self.page = self.page + 1
                 self.articleListViewModel = ListViewModel(articles, totalArticles: totalResults)
             } else {
-                print("No data")
+                print("No Data recieved")
             }
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 if dataFetched {
                     self.tableView.reloadData()
                 } else {
-                    self.showAlert(with: "Couldn't Fetch Articles", message: "Please try again", action: "Ok")
+                    self.showAlert(with: "Data Fetch failed", message: "Check API Limit", action: "Ok")
                 }
             }
         }
@@ -55,7 +55,7 @@ class NewsListenerController: UITableViewController, SFSafariViewControllerDeleg
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableCell", for: indexPath) as? TableCell else {
-            fatalError("Article cell not found")
+            fatalError("Article not found")
         }
         let articleAtCell = self.articleListViewModel.ArticleIndex(indexPath.row)
         cell.titleLabel.text = articleAtCell.title
@@ -66,11 +66,11 @@ class NewsListenerController: UITableViewController, SFSafariViewControllerDeleg
         let endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
         if (endScrolling >= scrollView.contentSize.height && (page-1)*20 < self.articleListViewModel.ArticleCount())
         {
-            print("Requesting for new articles")
+            print("Fetching New articels")
             fetchAdditionalNewsArticles()
         }
         if (page-1)*20 > self.articleListViewModel.ArticleCount() && !endAlertShown {
-            self.showAlert(with: "You are upto date", message: "", action: "Ok")
+            self.showAlert(with: "End of articles!", message: "", action: "Ok")
             endAlertShown = true
         }
     }
@@ -84,7 +84,7 @@ class NewsListenerController: UITableViewController, SFSafariViewControllerDeleg
             articleWebView.delegate = self
             present(articleWebView, animated: true)
         } else {
-            print("Error in forming URL")
+            print("Broken URL")
         }
     }
     func setupActivityIndicator() {
@@ -115,7 +115,7 @@ extension NewsListenerController {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
-        print("Fetching addtional news articles: \(self.page)")
+        print("Fetching more articles: \(self.page)")
         FetchData().getArticles(for: self.newsURL, with: self.page) { articles, totalResults in
             if let newArticles = articles {
                 self.page = self.page + 1
@@ -132,7 +132,7 @@ extension NewsListenerController {
                     self.tableView.endUpdates()
                 }
             } else {
-                print("No data for page: \(self.page)")
+                print("Empty page: \(self.page)")
             }
         }
     }
